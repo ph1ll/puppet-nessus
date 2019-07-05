@@ -1,0 +1,36 @@
+{
+  "name": "ph1ll-nessus",
+  "version": "0.1.0",
+  "author": "Ph1ll",
+  "summary": "Installs, configures, and manages Nessus",
+  "license": "MIT",
+  "source": "https://github.com/ph1ll/puppet-nessus",
+  "project_page": "https://github.com/ph1ll/puppet-nessus",
+  "issues_url": "https://github.com/ph1ll/puppet-nessus/issues",
+  "dependencies": [
+
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "16.04"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.10.0 < 7.0.0"
+    }
+  ],
+  "pdk-version": "1.11.1",
+  "template-url": "pdk-default#1.11.1",
+  "template-ref": "1.11.1-0-g2ff8c24"
+}
