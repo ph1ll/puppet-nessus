@@ -1,1 +1,3 @@
 ---
+nessus::package_ensure: present
+nessus::package_manage: true
