@@ -5,12 +5,13 @@
 # @example
 #   include nessus
 class nessus (
+  Optional[String] $activation_key,
   String $package_ensure,
   Boolean $package_manage,
   String $package_name,
   String $package_provider,
   String $package_source,
-  String $package_source_file_manage,
+  Boolean $package_source_file_manage,
   String $package_source_file_source,
 ) {
   contain nessus::install
