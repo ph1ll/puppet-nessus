@@ -3,4 +3,4 @@ nessus::package_name: 'Nessus-8.5.1-debian6_amd64.deb'
 nessus::package_provider: dpkg
 nessus::package_source: '/opt/Nessus-8.5.1-debian6_amd64.deb'
 nessus::package_source_file_manage: true
-nessus::package_source_file_source: 'puppet:///modules/nesssus/Nessus-8.5.1-debian6_amd64.deb'
+nessus::package_source_file_source: 'puppet:///modules/nessus/Nessus-8.5.1-debian6_amd64.deb'
