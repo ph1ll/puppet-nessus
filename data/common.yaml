@@ -1,3 +1,10 @@
 ---
 nessus::package_ensure: present
 nessus::package_manage: true
+nessus::service_enable: true
+nessus::service_ensure: running
+nessus::service_manage: true
+nessus::service_name: nessusd
+nessus::service_provider: ~
+nessus::service_hasstatus: true
+nessus::service_hasrestart: true
