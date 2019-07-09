@@ -13,6 +13,7 @@ class nessus (
   String $package_source,
   Boolean $package_source_file_manage,
   String $package_source_file_source,
+  String $config_nessuscli_path,
 ) {
   contain nessus::install
   contain nessus::config
