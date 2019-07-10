@@ -5,3 +5,6 @@ nessus::package_source: '/opt/Nessus-8.5.1-debian6_amd64.deb'
 nessus::package_source_file_manage: true
 nessus::package_source_file_source: 'puppet:///modules/nessus/Nessus-8.5.1-debian6_amd64.deb'
 nessus::config_nessuscli_path: '/opt/nessus/sbin/nessuscli'
+nessus::config_servercert_path: '/opt/nessus/com/nessus/CA/servercert.pem'
+nessus::config_serverchain_path: '/opt/nessus/com/nessus/CA/serverchain.pem'
+nessus::config_serverkey_path: '/opt/nessus/var/nessus/CA/serverkey.pem'

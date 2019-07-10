@@ -6,6 +6,9 @@
 #   include nessus
 class nessus (
   Optional[String] $activation_key,
+  Optional[String] $server_certificate,
+  Optional[String] $server_certificate_key,
+  Optional[String] $server_certificate_chain,
   String $package_ensure,
   Boolean $package_manage,
   String $package_name,
@@ -21,6 +24,9 @@ class nessus (
   Optional[String] $service_provider,
   Boolean $service_hasstatus,
   Boolean $service_hasrestart,
+  String $config_servercert_path,
+  String $config_serverchain_path,
+  String $config_serverkey_path,
 ) {
   contain nessus::install
   contain nessus::config

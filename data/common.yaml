@@ -1,4 +1,8 @@
 ---
+nessus::activation_key: ~
+nessus::server_certificate: ~
+nessus::server_certificate_key: ~
+nessus::server_certificate_chain: ~
 nessus::package_ensure: present
 nessus::package_manage: true
 nessus::service_enable: true

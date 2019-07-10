@@ -12,4 +12,28 @@ class nessus::config {
       notify  => Service[$nessus::service_name],
     }
   }
+
+  if $nessus::server_certificate {
+    file { $nessus::config_servercert_path:
+      ensure  => file,
+      content => $nessus::server_certificate,
+      notify  => Service[$nessus::service_name],
+    }
+  }
+
+  if $nessus::server_certificate_key {
+    file { $nessus::config_serverkey_path:
+      ensure  => file,
+      content => $nessus::server_certificate_key,
+      notify  => Service[$nessus::service_name],
+    }
+  }
+
+  if $nessus::server_certificate_chain {
+    file { $nessus::config_serverchain_path:
+      ensure  => file,
+      content => $nessus::server_certificate_chain,
+      notify  => Service[$nessus::service_name],
+    }
+  }
 }
