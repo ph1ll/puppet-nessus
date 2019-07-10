@@ -1,9 +1,5 @@
 # nessus
 
-Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
-
-The README template below provides a starting point with details about what information to include in your README.
-
 #### Table of Contents
 
 1. [Description](#description)
@@ -17,35 +13,74 @@ The README template below provides a starting point with details about what info
 
 ## Description
 
-Briefly tell users why they might want to use your module. Explain what your module does and what kind of problems users can solve with it.
-
-This should be a fairly short description helps the user decide if your module is what they want.
+The nessus module installs, configures, and manages the Nessus vulnerability scanner across a range of operating systems and distributions.
 
 ## Setup
 
-### What nessus affects **OPTIONAL**
-
-If it's obvious what your module touches, you can skip this section. For example, folks can probably figure out that your mysql_instance module affects their MySQL instances.
-
-If there's more that they should know about, though, this is the place to mention:
-
-* Files, packages, services, or operations that the module will alter, impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
-
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled, another module, etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps for upgrading, you might want to include an additional "Upgrading" section here.
-
 ### Beginning with nessus
 
-The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
+`include nessus` is enough to get you up and running. To pass in your activation key:
+
+```
+class { 'nessus':
+   activation_key => 'XXXX-XXXX-XXXX-XXXX',
+}
+```
 
 ## Usage
 
-Include usage examples for common use cases in the **Usage** section. Show your users how to use your module to solve problems, and be sure to include code examples. Include three to five examples of the most important or common tasks a user can accomplish with your module. Show users how to accomplish more complex tasks that involve different types, classes, and functions working in tandem.
+All parameters for the nessus module are contained within the main `nessus` class, so for any function of the module, set the options you want. See the common usages below for examples.
+
+### Install and enable Nessus
+
+```
+include nessus
+```
+
+### Set an activation key
+
+```
+class { 'nessus':
+   activation_key => 'XXXX-XXXX-XXXX-XXXX',
+}
+```
+
+### Set custom TLS certificate
+
+```
+$cert = "-----BEGIN CERTIFICATE-----
+  MIIGkjCCBHqgAwIBAgITXQAABw13wg1EWAmpzQAAAAAHDTANBgkqhkiG9w0BAQsF[...]
+  -----END CERTIFICATE-----"
+$key = "-----BEGIN PRIVATE KEY-----
+  MIIGkjCCBHqgAwIBAgITXQAABw13wg1EWAmpzQAAAAAHDTANBgkqhkiG9w0BAQsF[...]
+  -----END PRIVATE KEY-----"
+$chain = "-----BEGIN CERTIFICATE-----
+  MIIGkjCCBHqgAwIBAgITXQAABw13wg1EWAmpzQAAAAAHDTANBgkqhkiG9w0BAQsF[...]
+  -----END CERTIFICATE-----"
+
+class { 'nessus':
+   server_certificate       => $cert,
+   server_certificate_key   => $key,
+   server_certificate_chain => $chain,
+}
+```
+
+### Using Hiera
+
+```
+---
+nessus:activation_key: 'XXXX-XXXX-XXXX-XXXX'
+nessus::server_certificate: |
+  -----BEGIN CERTIFICATE-----
+  MIIGkjCCBHqgAwIBAgITXQAABw13wg1EWAmpzQAAAAAHDTANBgkqhkiG9w0BAQsF
+  [...]
+  HT61WMrx
+  -----END CERTIFICATE-----
+nessus::server_certificate_key: >
+  ENC[PKCS7,[M[IIOPQYJKoZIhvcNAQcDoIIOLjCCDioCAQAxggEhMIIBHQIBADAFMAACAQEw
+  [...]
+  gDkAU]Q==]
+```
 
 ## Reference
 
@@ -76,12 +111,8 @@ Default: 'medium-loud'.
 
 ## Limitations
 
-In the Limitations section, list any incompatibilities, known issues, or other warnings.
+For an extensive list of supported operating systems, see [metadata.json](https://github.com/ph1ll/puppet-nessus/blob/master/metadata.json)
 
 ## Development
 
 In the Development section, tell other users the ground rules for contributing to your project and how they should submit their work.
-
-## Release Notes/Contributors/Etc. **Optional**
-
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You can also add any additional sections you feel are necessary or important to include here. Please use the `## ` header.
