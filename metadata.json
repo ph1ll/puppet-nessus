@@ -1,6 +1,6 @@
 {
   "name": "ph1ll-nessus",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "author": "Ph1ll",
   "summary": "Installs, configures, and manages Nessus",
   "license": "MIT",
@@ -27,7 +27,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 4.10.0 < 7.0.0"
+      "version_requirement": ">= 7.0.0 < 9.0.0"
     }
   ],
   "pdk-version": "1.11.1",

@@ -9,6 +9,6 @@ nessus::service_enable: true
 nessus::service_ensure: running
 nessus::service_manage: true
 nessus::service_name: nessusd
-nessus::service_provider: ~
+nessus::service_provider: systemd
 nessus::service_hasstatus: true
 nessus::service_hasrestart: true
